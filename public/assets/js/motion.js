@@ -1,1 +1,33 @@
-"use strict";var MotionLib=(()=>{var m=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var l=Object.prototype.hasOwnProperty;var u=(n,t)=>{for(var i in t)m(n,i,{get:t[i],enumerable:!0})},f=(n,t,i,r)=>{if(t&&typeof t=="object"||typeof t=="function")for(let a of h(t))!l.call(n,a)&&a!==i&&m(n,a,{get:()=>t[a],enumerable:!(r=d(t,a))||r.enumerable});return n};var p=n=>f(m({},"__esModule",{value:!0}),n);var L={};u(L,{initMotion:()=>E});var v=["main h1","main h2","main h3","main p","main li","main .btn","main picture","main img","main form","main [data-reveal]"].join(",");function E(){if(typeof window>"u")return()=>{};let n=document.documentElement;if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return n.classList.remove("rv-on"),()=>{};window.__motion=!0,n.classList.add("rv-on");let t=Array.from(document.querySelectorAll("[data-hero-title],[data-hero-fade],[data-hero-photo]"));t.forEach((e,s)=>{e.style.transitionDelay=`${Math.min(s*90,600)}ms`,requestAnimationFrame(()=>requestAnimationFrame(()=>e.classList.add("show")))});let i=new Set(t),r=[];document.querySelectorAll(v).forEach(e=>{i.has(e)||e.closest("[data-hero-title],[data-hero-fade],[data-hero-photo],[data-no-reveal]")||r.some(s=>s.contains(e))||r.push(e)}),r.forEach(e=>e.classList.add("rv"));let a=new IntersectionObserver(e=>{e.filter(o=>o.isIntersecting).map(o=>o.target).sort((o,c)=>o.getBoundingClientRect().top-c.getBoundingClientRect().top).forEach((o,c)=>{o.style.transitionDelay=`${Math.min(c*80,400)}ms`,o.classList.add("show"),a.unobserve(o),o.addEventListener("transitionend",()=>o.style.transitionDelay="",{once:!0})})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});return r.forEach(e=>a.observe(e)),()=>{a.disconnect(),r.forEach(e=>e.classList.remove("rv","show")),n.classList.remove("rv-on")}}return p(L);})();
+"use strict";
+/* Scroll Reveal (fade in up, staggered), like droralon.com.
+   Every heading, paragraph, button, image, card and list item starts lower and transparent,
+   and rises into place once when it enters the viewport. */
+var MotionLib=(function(){
+  var SEL=["main h1","main h2","main h3","main p","main li","main .btn","main picture","main img","main form","main blockquote","main [data-reveal]","footer img","footer h2","footer li","footer p"].join(",");
+  var HERO="[data-hero-title],[data-hero-fade],[data-hero-photo]";
+  function initMotion(){
+    var root=document.documentElement;
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){root.classList.remove("rv-on");return function(){};}
+    window.__motion=true;root.classList.add("rv-on");
+    var hero=Array.prototype.slice.call(document.querySelectorAll(HERO));
+    hero.forEach(function(el,i){el.style.transitionDelay=Math.min(i*120,720)+"ms";requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add("show")})})});
+    var heroSet=new Set(hero),list=[];
+    document.querySelectorAll(SEL).forEach(function(el){
+      if(heroSet.has(el)||el.closest(HERO+",[data-no-reveal]"))return;
+      if(list.some(function(p){return p.contains(el)}))return;
+      list.push(el);
+    });
+    list.forEach(function(el){el.classList.add("rv")});
+    var io=new IntersectionObserver(function(entries){
+      entries.filter(function(e){return e.isIntersecting}).map(function(e){return e.target})
+        .sort(function(a,b){return a.getBoundingClientRect().top-b.getBoundingClientRect().top||b.getBoundingClientRect().left-a.getBoundingClientRect().left})
+        .forEach(function(el,i){
+          el.style.transitionDelay=Math.min(i*110,550)+"ms";el.classList.add("show");io.unobserve(el);
+          el.addEventListener("transitionend",function(){el.style.transitionDelay=""},{once:true});
+        });
+    },{threshold:0.15,rootMargin:"0px 0px -8% 0px"});
+    list.forEach(function(el){io.observe(el)});
+    return function(){io.disconnect()};
+  }
+  return {initMotion:initMotion};
+})();
