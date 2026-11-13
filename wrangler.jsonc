@@ -1,5 +1,21 @@
 {
   "name": "liel-orgad-site",
+  "main": "src/worker.js",
   "compatibility_date": "2026-10-01",
-  "assets": { "directory": "./public", "html_handling": "auto-trailing-slash" }
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "lielorgad.com", "custom_domain": true },
+    { "pattern": "www.lielorgad.com", "custom_domain": true }
+  ],
+  "send_email": [{ "name": "EMAIL" }],
+  "ratelimits": [
+    { "name": "FORM_LIMITER", "namespace_id": "4401", "simple": { "limit": 5, "period": 60 } }
+  ],
+  "observability": { "enabled": true }
+  // Secret (set in the dashboard, not in Git): FORM_TO = comma separated recipient list
 }
