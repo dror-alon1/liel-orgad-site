@@ -81,7 +81,7 @@
         if (x.r.ok && x.j.ok) {
           mark(null);
           f.reset();
-          say('תודה, הפנייה התקבלה. ליאל תחזור אליכם בהקדם.', true);
+          say('תודה, הפנייה התקבלה. עו״ד אורגד תחזור אליכם בהקדם.', true);
           try { if (window.gtag) gtag('event', 'lead_submit_success', { topic: d.topic }); } catch (e) {}
         } else if (x.j.error === 'validation') {
           mark(x.j.fields);
