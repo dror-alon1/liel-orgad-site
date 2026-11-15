@@ -3,7 +3,7 @@
    Every heading, paragraph, button, image, card and list item starts lower and transparent,
    and rises into place once when it enters the viewport. */
 var MotionLib=(function(){
-  var SEL=["main h1","main h2","main h3","main p","main li","main .btn","main picture","main img","main form","main blockquote","main [data-reveal]","footer img","footer h2","footer li","footer p"].join(",");
+  var SEL=["main h1","main h2","main h3","main p","main li","main .btn","main picture","main img","main form","main blockquote","main [data-reveal]","footer img","footer h2","footer li"].join(",");
   var HERO="[data-hero-title],[data-hero-fade],[data-hero-photo]";
   function initMotion(){
     var root=document.documentElement;
