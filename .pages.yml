@@ -1,0 +1,1538 @@
+# Pages CMS configuration for lielorgad.com
+# Liel edits content here; scripts/build.mjs turns content/ + templates/ into the site on every save.
+# Generated from the page templates. Field names (s02, f03...) map to placeholders in templates/*.html: do not rename them.
+media:
+  input: public/images
+  output: /images
+  extensions: [jpg, jpeg, png, webp]
+content:
+  - name: blog
+    label: "בלוג: מאמרים"
+    type: collection
+    path: content/blog
+    format: json
+    filename: "{year}-{month}-{day}-{fields.slug}.json"
+    fields:
+      - name: title
+        label: "כותרת המאמר"
+        type: string
+        required: true
+      - name: slug
+        label: "כתובת המאמר באנגלית, למשל first-apartment-checklist"
+        type: string
+        required: true
+      - name: date
+        label: "תאריך פרסום"
+        type: date
+        required: true
+      - name: description
+        label: "תקציר קצר (מוצג ברשימת המאמרים ובגוגל)"
+        type: text
+      - name: cover
+        label: "תמונה ראשית"
+        type: image
+      - name: cover_alt
+        label: "תיאור התמונה (לנגישות ולגוגל)"
+        type: string
+      - name: body
+        label: "תוכן המאמר"
+        type: rich-text
+        required: true
+        options:
+          format: html
+      - name: draft
+        label: "טיוטה: לא להציג באתר עדיין"
+        type: boolean
+  - name: page-index
+    label: "עמוד: דף הבית"
+    type: file
+    path: content/pages/index.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "קונים או מוכרים דירה? אני עושה לכם סדר לפני שמתחייבים."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "פסקה 3"
+            type: text
+          - name: f06
+            label: "כפתור או קישור"
+            type: string
+          - name: f07
+            label: "כפתור או קישור 2"
+            type: string
+          - name: img1
+            label: "תמונה"
+            type: image
+          - name: img1_alt
+            label: "תיאור התמונה (לנגישות ולגוגל)"
+            type: string
+      - name: s03
+        label: "ליווי משפטי ברגעים החשובים בחיים"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "כותרת משנה 1"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+          - name: f05
+            label: "כותרת משנה 2"
+            type: string
+          - name: f06
+            label: "פסקה 2"
+            type: text
+          - name: f07
+            label: "כפתור או קישור 2"
+            type: string
+          - name: f08
+            label: "כותרת משנה 3"
+            type: string
+          - name: f09
+            label: "פסקה 3"
+            type: text
+          - name: f10
+            label: "כפתור או קישור 3"
+            type: string
+          - name: f11
+            label: "כותרת משנה 4"
+            type: string
+          - name: f12
+            label: "פסקה 4"
+            type: text
+          - name: f13
+            label: "כפתור או קישור 4"
+            type: string
+          - name: f14
+            label: "כפתור או קישור 5"
+            type: string
+      - name: s04
+        label: "מה אני עושה בשבילכם"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כותרת משנה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "כותרת משנה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "כותרת משנה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+      - name: s05
+        label: "אני ליאל. איתכם בכל שלב בדרך."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: img1
+            label: "תמונה"
+            type: image
+          - name: img1_alt
+            label: "תיאור התמונה (לנגישות ולגוגל)"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "פסקה 2"
+            type: string
+          - name: f05
+            label: "פסקה 3"
+            type: text
+          - name: f06
+            label: "פסקה 4"
+            type: string
+          - name: f07
+            label: "פסקה 5"
+            type: text
+          - name: f08
+            label: "פסקה 6"
+            type: text
+          - name: f09
+            label: "פסקה 7"
+            type: text
+          - name: f10
+            label: "טקסט מודגש"
+            type: string
+          - name: f11
+            label: "פסקה 8"
+            type: string
+          - name: f12
+            label: "כפתור או קישור"
+            type: string
+      - name: s06
+        label: "כך עובדים יחד"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כותרת משנה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f06
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f07
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f08
+            label: "כותרת משנה 2"
+            type: string
+          - name: f09
+            label: "פסקה 3"
+            type: string
+          - name: f10
+            label: "פריט ברשימה 4"
+            type: string
+          - name: f11
+            label: "פריט ברשימה 5"
+            type: string
+          - name: f12
+            label: "פריט ברשימה 6"
+            type: string
+          - name: f13
+            label: "כותרת משנה 3"
+            type: string
+          - name: f14
+            label: "פסקה 4"
+            type: string
+          - name: f15
+            label: "פריט ברשימה 7"
+            type: string
+          - name: f16
+            label: "פריט ברשימה 8"
+            type: string
+          - name: f17
+            label: "פריט ברשימה 9"
+            type: string
+      - name: s07
+        label: "שאלות נפוצות"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+          - name: f09
+            label: "שאלה 4"
+            type: string
+          - name: f10
+            label: "פסקה 5"
+            type: text
+          - name: f11
+            label: "שאלה 5"
+            type: string
+          - name: f12
+            label: "פסקה 6"
+            type: text
+          - name: f13
+            label: "שאלה 6"
+            type: string
+          - name: f14
+            label: "פסקה 7"
+            type: text
+          - name: f15
+            label: "שאלה 7"
+            type: string
+          - name: f16
+            label: "פסקה 8"
+            type: text
+      - name: s08
+        label: "יש לכם עסקה על הפרק? בואו נעשה בה סדר."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-real-estate
+    label: "עמוד: מקרקעין: קנייה ומכירה"
+    type: file
+    path: content/pages/real-estate.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "קונים או מוכרים דירה? בואו נעשה סדר לפני שמתקדמים."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+      - name: s03
+        label: "מה כולל הליווי המשפטי"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f06
+            label: "פריט ברשימה 4"
+            type: string
+          - name: f07
+            label: "פריט ברשימה 5"
+            type: string
+      - name: s04
+        label: "מה חשוב לבדוק לפני חתימה על הסכם מכר"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f06
+            label: "פריט ברשימה 4"
+            type: string
+          - name: f07
+            label: "פסקה 2"
+            type: string
+      - name: s05
+        label: "מה נבחן לאורך עסקת המקרקעין"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s06
+        label: "מתי נדרשים בעלי מקצוע נוספים בעסקת דירה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s07
+        label: "ליווי לפי סוג העסקה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+          - name: f04
+            label: "כפתור או קישור 2"
+            type: string
+      - name: s08
+        label: "שאלות נפוצות על קנייה ומכירה של דירה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+          - name: f09
+            label: "שאלה 4"
+            type: string
+          - name: f10
+            label: "פסקה 5"
+            type: text
+      - name: s09
+        label: "יש לכם עסקה על הפרק? בואו נעשה בה סדר."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-first-home
+    label: "עמוד: דירה ראשונה"
+    type: file
+    path: content/pages/first-home.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "הדירה הראשונה שלכם. נוודא שאתם מבינים גם את העסקה."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+      - name: s03
+        label: "בדיקות זכויות לפני קניית דירה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s04
+        label: "חוזה רכישת הדירה וההתניות שבו"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f06
+            label: "פריט ברשימה 4"
+            type: string
+          - name: f07
+            label: "פסקה 2"
+            type: string
+      - name: s05
+        label: "תיאום לוחות זמנים ברכישת דירה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s06
+        label: "משכנתה ומיסוי בדירה ראשונה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s07
+        label: "איך עובדים יחד"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 4"
+            type: string
+      - name: s08
+        label: "שאלות נפוצות על קניית דירה ראשונה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+      - name: s09
+        label: "מצאתם דירה? בואו נעבור על זה יחד."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-sell-and-buy
+    label: "עמוד: מוכרים וקונים"
+    type: file
+    path: content/pages/sell-and-buy.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "מוכרים דירה וקונים אחרת? חשוב שכל החלקים יתחברו."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+      - name: s03
+        label: "מכירה וקנייה: שתי עסקאות, תמונה אחת"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s04
+        label: "מועדים ותשלומים במכירה ובקנייה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 3"
+            type: string
+      - name: s05
+        label: "אילוצים משפטיים בעסקאות חופפות"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s06
+        label: "מס ומימון במכירה ובקנייה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s07
+        label: "שאלות נפוצות על מכירה וקנייה של דירה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+      - name: s08
+        label: "מוכרים וקונים? בואו נראה איך הכול מתחבר."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-prenuptial-agreements
+    label: "עמוד: הסכמי ממון"
+    type: file
+    path: content/pages/prenuptial-agreements.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "אפשר לדבר על כסף ורכוש, ולהמשיך לבנות יחד."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+      - name: s03
+        label: "למי מתאים הסכם ממון"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 4"
+            type: string
+      - name: s04
+        label: "על מה מדברים בהסכם ממון"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s05
+        label: "תהליך עריכת הסכם ממון"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 4"
+            type: string
+      - name: s06
+        label: "אישור הסכם ממון לפי הדין"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s07
+        label: "שאלות נפוצות על הסכם ממון"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+          - name: f09
+            label: "שאלה 4"
+            type: string
+          - name: f10
+            label: "פסקה 5"
+            type: text
+      - name: s08
+        label: "רוצים לדבר על הסכם ממון?"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-enduring-power-of-attorney
+    label: "עמוד: ייפוי כוח מתמשך"
+    type: file
+    path: content/pages/enduring-power-of-attorney.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "יש החלטות שחשוב לקבל כשאנחנו עדיין יכולים לבחור בעצמנו."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+      - name: s03
+        label: "מהו ייפוי כוח מתמשך"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s04
+        label: "למי מתאים ייפוי כוח מתמשך"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s05
+        label: "מי יכול להתמנות כמיופה כוח"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s06
+        label: "ענייני רכוש, עניינים אישיים ורפואיים"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 3"
+            type: string
+      - name: s07
+        label: "עריכה והפקדה של ייפוי כוח מתמשך"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+      - name: s08
+        label: "שאלות נפוצות על ייפוי כוח מתמשך"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: string
+          - name: f09
+            label: "שאלה 4"
+            type: string
+          - name: f10
+            label: "פסקה 5"
+            type: text
+          - name: f11
+            label: "שאלה 5"
+            type: string
+          - name: f12
+            label: "פסקה 6"
+            type: string
+      - name: s09
+        label: "חושבים על ייפוי כוח מתמשך?"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-wills
+    label: "עמוד: צוואות"
+    type: file
+    path: content/pages/wills.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "כדי שהרצונות שלכם יהיו ברורים גם בעתיד."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "כפתור או קישור"
+            type: string
+      - name: s03
+        label: "למי רלוונטית צוואה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s04
+        label: "שאלות לפני עריכת צוואה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f03
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 4"
+            type: string
+      - name: s05
+        label: "סוגיות משפחתיות בצוואה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s06
+        label: "מתי כדאי לבדוק צוואה קיימת"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s07
+        label: "הפקדת צוואה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+      - name: s08
+        label: "שאלות נפוצות על צוואה"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "שאלה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "שאלה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "שאלה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+          - name: f09
+            label: "שאלה 4"
+            type: string
+          - name: f10
+            label: "פסקה 5"
+            type: text
+          - name: f11
+            label: "שאלה 5"
+            type: string
+          - name: f12
+            label: "פסקה 6"
+            type: text
+      - name: s09
+        label: "רוצים לדבר על צוואה?"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-about
+    label: "עמוד: אודות"
+    type: file
+    path: content/pages/about.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "ליאל אורגד, עורכת דין."
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+      - name: s03
+        label: "אני ליאל. איתכם בכל שלב בדרך."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: img1
+            label: "תמונה"
+            type: image
+          - name: img1_alt
+            label: "תיאור התמונה (לנגישות ולגוגל)"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "פסקה 2"
+            type: string
+          - name: f05
+            label: "פסקה 3"
+            type: text
+          - name: f06
+            label: "פסקה 4"
+            type: string
+          - name: f07
+            label: "פסקה 5"
+            type: text
+          - name: f08
+            label: "פסקה 6"
+            type: text
+          - name: f09
+            label: "פסקה 7"
+            type: text
+          - name: f10
+            label: "טקסט מודגש"
+            type: string
+          - name: f11
+            label: "פסקה 8"
+            type: string
+          - name: f12
+            label: "כפתור או קישור"
+            type: string
+      - name: s04
+        label: "מה אני עושה בשבילכם"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כותרת משנה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "כותרת משנה 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "כותרת משנה 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+      - name: s05
+        label: "כך עובדים יחד"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כותרת משנה 1"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f06
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f07
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f08
+            label: "כותרת משנה 2"
+            type: string
+          - name: f09
+            label: "פסקה 3"
+            type: string
+          - name: f10
+            label: "פריט ברשימה 4"
+            type: string
+          - name: f11
+            label: "פריט ברשימה 5"
+            type: string
+          - name: f12
+            label: "פריט ברשימה 6"
+            type: string
+          - name: f13
+            label: "כותרת משנה 3"
+            type: string
+          - name: f14
+            label: "פסקה 4"
+            type: string
+          - name: f15
+            label: "פריט ברשימה 7"
+            type: string
+          - name: f16
+            label: "פריט ברשימה 8"
+            type: string
+          - name: f17
+            label: "פריט ברשימה 9"
+            type: string
+      - name: s06
+        label: "יש לכם עסקה על הפרק? בואו נעשה בה סדר."
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: string
+          - name: f03
+            label: "כפתור או קישור"
+            type: string
+  - name: page-contact
+    label: "עמוד: יצירת קשר"
+    type: file
+    path: content/pages/contact.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "על מה תרצו שנעשה סדר?"
+        type: object
+        fields:
+          - name: f01
+            label: "שורה קטנה מעל הכותרת"
+            type: string
+          - name: f02
+            label: "כותרת ראשית"
+            type: string
+          - name: f03
+            label: "פסקה 1"
+            type: text
+          - name: f04
+            label: "טקסט"
+            type: string
+          - name: f05
+            label: "טקסט 2"
+            type: string
+          - name: f06
+            label: "טקסט 3"
+            type: string
+          - name: f07
+            label: "טקסט 4"
+            type: string
+          - name: f08
+            label: "טקסט 5"
+            type: string
+          - name: f09
+            label: "טקסט 6"
+            type: string
+  - name: page-blog
+    label: "עמוד: בלוג (עמוד ראשי)"
+    type: file
+    path: content/pages/blog.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "בלוג"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת ראשית"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כותרת"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: string
+          - name: f05
+            label: "כפתור או קישור"
+            type: string
+          - name: f06
+            label: "כפתור או קישור 2"
+            type: string
+          - name: f07
+            label: "כפתור או קישור 3"
+            type: string
+          - name: f08
+            label: "כפתור או קישור 4"
+            type: string
+  - name: page-privacy
+    label: "עמוד: מדיניות פרטיות"
+    type: file
+    path: content/pages/privacy.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "מדיניות פרטיות"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת ראשית"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כותרת"
+            type: string
+          - name: f04
+            label: "פסקה 2"
+            type: text
+          - name: f05
+            label: "כותרת 2"
+            type: string
+          - name: f06
+            label: "פסקה 3"
+            type: text
+          - name: f07
+            label: "כותרת 3"
+            type: string
+          - name: f08
+            label: "פסקה 4"
+            type: text
+          - name: f09
+            label: "כותרת 4"
+            type: string
+  - name: page-accessibility
+    label: "עמוד: הצהרת נגישות"
+    type: file
+    path: content/pages/accessibility.json
+    format: json
+    fields:
+      - name: seo
+        label: "חיפוש בגוגל"
+        type: object
+        fields:
+          - name: title
+            label: "כותרת לגוגל (title)"
+            type: string
+          - name: description
+            label: "תיאור לגוגל (meta description)"
+            type: text
+      - name: s02
+        label: "הצהרת נגישות"
+        type: object
+        fields:
+          - name: f01
+            label: "כותרת ראשית"
+            type: string
+          - name: f02
+            label: "פסקה 1"
+            type: text
+          - name: f03
+            label: "כותרת"
+            type: string
+          - name: f04
+            label: "פריט ברשימה 1"
+            type: string
+          - name: f05
+            label: "פריט ברשימה 2"
+            type: string
+          - name: f06
+            label: "פריט ברשימה 3"
+            type: string
+          - name: f07
+            label: "פריט ברשימה 4"
+            type: string
+          - name: f08
+            label: "פריט ברשימה 5"
+            type: string
+          - name: f09
+            label: "כותרת 2"
+            type: string

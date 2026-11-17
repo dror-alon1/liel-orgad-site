@@ -1,0 +1,16 @@
+{
+  "name": "liel-orgad-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.34.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
